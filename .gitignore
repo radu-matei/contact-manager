@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+/src/contact-manager.api/.vscode
+/src/contact-manager.api/project.lock.json
