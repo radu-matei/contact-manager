@@ -253,3 +253,7 @@ paket-files/
 
 /src/contact-manager.api/.vscode
 /src/contact-manager.api/project.lock.json
+
+/src/contact-manager.web/.vscode
+/src/contact-manager.web/typings
+/src/contact-manager.web/test
