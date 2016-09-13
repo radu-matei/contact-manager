@@ -257,3 +257,7 @@ paket-files/
 /src/contact-manager.web/.vscode
 /src/contact-manager.web/typings
 /src/contact-manager.web/test
+
+/src/contact-manager.web/scripts/*-bundle.js*
+
+src/.DS_Store
