@@ -142,6 +142,11 @@
             "path": "../node_modules/aurelia-templating-router/dist/amd",
             "main": "aurelia-templating-router"
           },
+                    {
+            "name": "ms-signalr-client",
+            "path": "../node_modules/ms-signalr-client/jquery.signalr-2.2.0.min"
+          },
+          
           {
             "name": "aurelia-testing",
             "path": "../node_modules/aurelia-testing/dist/amd",
