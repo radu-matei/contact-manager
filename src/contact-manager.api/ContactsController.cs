@@ -35,7 +35,7 @@ public class ContactsController : Controller
     public void UpdateContact([FromBody]Contact contact)
     {
         _contacts.UpdateContact(contact);
-        _connectionManager.GetHubContext<ContactsHub>().Clients.All.updateContact(contact);
+        _connectionManager.GetHubContext<ContactsHub>().Clients.All.contactUpdated(contact);
 
     }
 }
