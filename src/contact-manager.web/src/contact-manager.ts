@@ -1,6 +1,6 @@
 import { HttpClient, json } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
-import { Contact } from './interfaces';
+import { Contact } from './utils';
 
 @inject(HttpClient)
 export class ContactManager {
