@@ -4,4 +4,5 @@ public interface IContactRepsository
 {
     List<Contact> GetAll();
     void AddContact(Contact contact);
+    Contact GetContactById(int id);
 }

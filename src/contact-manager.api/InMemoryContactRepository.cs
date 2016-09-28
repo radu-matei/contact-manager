@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class InMemoryContactRepository : IContactRepsository
 {
@@ -16,5 +17,10 @@ public class InMemoryContactRepository : IContactRepsository
     public List<Contact> GetAll()
     {
         return _contacts;
+    }
+
+    public Contact GetContactById(int id)
+    {
+        return _contacts.FirstOrDefault(contact => contact.Id == id);
     }
 }
