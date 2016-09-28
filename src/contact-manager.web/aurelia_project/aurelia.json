@@ -93,7 +93,7 @@
           "node_modules/jquery/dist/jquery.min.js"
         ],
         "dependencies": [
-          /*"jquery",
+          "jquery",
           {
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
@@ -105,7 +105,7 @@
             "resources": [
               "css/bootstrap.css"
             ]
-          },*/
+          },
           "aurelia-binding",
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
