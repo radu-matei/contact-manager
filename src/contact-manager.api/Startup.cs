@@ -7,10 +7,15 @@ public class Startup
     {
         services.AddMvc();
         services.AddSingleton<IContactRepsository, InMemoryContactRepository>();
+        services.AddCors();
     }
 
     public void Configure(IApplicationBuilder app)
     {
+
+    app.UseCors(builder =>
+       builder.WithOrigins("http://localhost:9000"));
+
         app.UseMvc(routes =>
         {
             routes.MapRoute(
