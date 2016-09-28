@@ -1,46 +1,25 @@
-/*import {EventAggregator} from 'aurelia-event-aggregator';
-import {WebAPI} from './web-api';
-import {ContactUpdated, ContactViewed} from './messages';
-import {inject} from 'aurelia-framework';
-
-@inject(WebAPI, EventAggregator)
-export class ContactList {
-  contacts;
-  selectedId = 0;
-
-  constructor(private api: WebAPI, ea: EventAggregator){
-    ea.subscribe(ContactViewed, msg => this.select(msg.contact));
-    ea.subscribe(ContactUpdated, msg => {
-      let id = msg.contact.id;
-      let found = this.contacts.find(x => x.id == id);
-      Object.assign(found, msg.contact);
-    });
-  }
-
-  created(){
-    //this.api.getContactList().then(contacts => this.contacts = contacts);
-  }
-
-  select(contact){
-    this.selectedId = contact.id;
-    return true;
-  }
-}
-*/
-
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 import {ContactManager} from './contact-manager';
+import {Contact} from './interfaces';
 
 @inject(ContactManager)
 export class ContactList {
+
   contactManager: ContactManager;
-  message = 'Hello World!';
-  contacts;
+  contacts: Array<Contact>;
+  selectedId: number;
 
   constructor(contactManager: ContactManager){
       this.contactManager = contactManager;
-      
+  }
+
+  created(): void {
       this.contactManager.getContacts().then(contacts => this.contacts = contacts);
+  }
+
+  select(contact): boolean{
+    this.selectedId = contact.id;
+    return true;
   }
 }
