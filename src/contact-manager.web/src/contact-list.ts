@@ -1,4 +1,4 @@
-import {EventAggregator} from 'aurelia-event-aggregator';
+/*import {EventAggregator} from 'aurelia-event-aggregator';
 import {WebAPI} from './web-api';
 import {ContactUpdated, ContactViewed} from './messages';
 import {inject} from 'aurelia-framework';
@@ -18,11 +18,29 @@ export class ContactList {
   }
 
   created(){
-    this.api.getContactList().then(contacts => this.contacts = contacts);
+    //this.api.getContactList().then(contacts => this.contacts = contacts);
   }
 
   select(contact){
     this.selectedId = contact.id;
     return true;
+  }
+}
+*/
+
+import {HttpClient, json} from 'aurelia-fetch-client';
+import {inject} from 'aurelia-framework';
+import {ContactManager} from './contact-manager';
+
+@inject(ContactManager)
+export class ContactList {
+  contactManager: ContactManager;
+  message = 'Hello World!';
+  contacts;
+
+  constructor(contactManager: ContactManager){
+      this.contactManager = contactManager;
+      
+      this.contactManager.getContacts().then(contacts => this.contacts = contacts);
   }
 }
