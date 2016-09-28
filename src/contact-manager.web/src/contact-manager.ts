@@ -4,7 +4,6 @@ import {inject} from 'aurelia-framework';
 @inject(HttpClient)
 export class ContactManager {
   httpClient: HttpClient;
-  message = 'Hello World!';
 
 
   constructor(httpClient: HttpClient){
