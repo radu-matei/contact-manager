@@ -88,10 +88,12 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
-          "scripts/require.js"
+          "node_modules/whatwg-fetch/fetch.js",
+          "scripts/require.js",
+          "node_modules/jquery/dist/jquery.min.js"
         ],
         "dependencies": [
-          "jquery",
+          /*"jquery",
           {
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
@@ -103,11 +105,12 @@
             "resources": [
               "css/bootstrap.css"
             ]
-          },
+          },*/
           "aurelia-binding",
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
           "aurelia-event-aggregator",
+          "aurelia-fetch-client",
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
