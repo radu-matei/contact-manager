@@ -4,12 +4,6 @@ import {WebAPI} from './web-api';
 import {ContactUpdated, ContactViewed} from './messages';
 import {areEqual} from './utility';
 
-interface Contact {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
 @inject(WebAPI, EventAggregator)
 export class ContactDetail {
     routeConfig;
