@@ -22,4 +22,13 @@ public class Contact
     public Contact()
     {
     }
+
+    public void UpdateContact(Contact contact) 
+    {
+      Id = contact.Id;
+      FirstName = contact.FirstName;
+      LastName = contact.LastName;
+      Email = contact.Email;
+      PhoneNumber = contact.PhoneNumber;
+    }
 }
