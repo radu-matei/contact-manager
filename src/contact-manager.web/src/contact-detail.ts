@@ -1,8 +1,9 @@
 import { inject } from 'aurelia-framework';
 import { ContactManager } from './contact-manager';
 import { Contact } from './interfaces';
+import { SignalRConnection } from './signalr-component';
 
-@inject(ContactManager)
+@inject(ContactManager, SignalRConnection)
 export class ContactDetail {
 
   routeConfig;
@@ -10,8 +11,11 @@ export class ContactDetail {
   contact: Contact;
   originalContact: Contact;
 
-  constructor(contactManager: ContactManager) {
+  signalRConnection: SignalRConnection;
+
+  constructor(contactManager: ContactManager, signalRConnection: SignalRConnection) {
     this.contactManager = contactManager;
+    this.signalRConnection = signalRConnection;
   }
 
   activate(params, routeConfig) {
@@ -23,6 +27,10 @@ export class ContactDetail {
       
       this.routeConfig.navModel.setTitle(this.contact.firstName);
     });
+  }
+
+  attached() {
+    this.signalRConnection.tst();
   }
 
   get canSave(): boolean {
