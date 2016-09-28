@@ -27,4 +27,10 @@ public class ContactsController : Controller
     {
         _contacts.AddContact(contact);
     }
+
+    [HttpPost]
+    public void UpdateContact([FromBody]Contact contact)
+    {
+        _contacts.UpdateContact(contact);
+    }
 }
