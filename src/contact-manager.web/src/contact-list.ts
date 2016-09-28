@@ -1,25 +1,34 @@
-import {HttpClient, json} from 'aurelia-fetch-client';
-import {inject} from 'aurelia-framework';
-import {ContactManager} from './contact-manager';
-import {Contact} from './interfaces';
+import { inject } from 'aurelia-framework';
+import { HttpClient, json } from 'aurelia-fetch-client';
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { ContactManager } from './contact-manager';
+import { Contact, ConnectionMessages } from './utils';
+import { BaseComponent } from './base-component';
 
-@inject(ContactManager)
-export class ContactList {
+@inject(ContactManager, EventAggregator, ConnectionMessages)
+export class ContactList extends BaseComponent {
 
   contactManager: ContactManager;
   contacts: Array<Contact>;
   selectedId: number;
 
-  constructor(contactManager: ContactManager){
-      this.contactManager = contactManager;
+  constructor(contactManager: ContactManager, eventAggregator: EventAggregator, connectionMessages: ConnectionMessages) {
+    super(eventAggregator, connectionMessages);
+
+    this.contactManager = contactManager;
   }
 
-  created(): void {
-      this.contactManager.getContacts().then(contacts => this.contacts = contacts);
+  attached(): void {
+    super.attached();
+    this.contactManager.getContacts().then(contacts => this.contacts = contacts);
   }
 
-  select(contact): boolean{
+  select(contact): boolean {
     this.selectedId = contact.id;
     return true;
+  }
+
+  contacts_contactUpdatedHandler(contact: Contact): void {
+     this.contacts[0].firstName = contact.firstName;
   }
 }
