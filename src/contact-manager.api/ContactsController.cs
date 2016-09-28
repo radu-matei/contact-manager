@@ -16,6 +16,12 @@ public class ContactsController : Controller
         return _contacts.GetAll();
     }
 
+    [HttpGet]
+    public Contact GetContactById([FromQuery]int id)
+    {
+        return _contacts.GetContactById(id);
+    }
+
     [HttpPost]
     public void AddContact(Contact contact)
     {
