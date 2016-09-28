@@ -9,11 +9,13 @@ export class SignalRConnection {
     }
 
     tst() {
-        var url = "http://localhost:5001/signalr";
+        var url = "http://localhost:5000/signalr";
+
         var connection = $.hubConnection(url);
-        var contosoChatHubProxy = connection.createHubProxy('postsHub');
-        contosoChatHubProxy.on('publishPost', function (message) {
-            console.log(message.text);
+        var contosoChatHubProxy = connection.createHubProxy('contactsHub');
+
+        contosoChatHubProxy.on('updateContact', function (contact) {
+            console.log(contact.firstName + contact.lastName);
         });
 
         $.connection.hub.logging = true;
