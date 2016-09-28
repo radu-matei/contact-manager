@@ -90,7 +90,8 @@
           "node_modules/bluebird/js/browser/bluebird.core.js",
           "node_modules/whatwg-fetch/fetch.js",
           "scripts/require.js",
-          "node_modules/jquery/dist/jquery.min.js"
+          "node_modules/jquery/dist/jquery.min.js",
+          "node_modules/ms-signalr-client/jquery.signalr-2.2.0.min.js"
         ],
         "dependencies": [
           "jquery",
@@ -105,6 +106,10 @@
             "resources": [
               "css/bootstrap.css"
             ]
+          },
+          {
+            "name": "ms-signalr-client",
+            "path": "../node_modules/ms-signalr-client/jquery.signalr-2.2.0.min"
           },
           "aurelia-binding",
           "aurelia-bootstrapper",
@@ -141,10 +146,6 @@
             "name": "aurelia-templating-router",
             "path": "../node_modules/aurelia-templating-router/dist/amd",
             "main": "aurelia-templating-router"
-          },
-                    {
-            "name": "ms-signalr-client",
-            "path": "../node_modules/ms-signalr-client/jquery.signalr-2.2.0.min"
           },
           
           {
