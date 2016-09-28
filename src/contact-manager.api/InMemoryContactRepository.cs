@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,5 +23,13 @@ public class InMemoryContactRepository : IContactRepsository
     public Contact GetContactById(int id)
     {
         return _contacts.FirstOrDefault(contact => contact.Id == id);
+    }
+
+    public void UpdateContact(Contact contact)
+    {
+        var contactToUpdate = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+
+        if (contactToUpdate != null)
+            contactToUpdate.UpdateContact(contact);
     }
 }
