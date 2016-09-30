@@ -29,6 +29,9 @@ export class ContactList extends BaseComponent {
   }
 
   contacts_contactUpdatedHandler(contact: Contact): void {
-     this.contacts[0].firstName = contact.firstName;
+     this.contacts.forEach(c => {
+        if(c.id == contact.id)
+          c.firstName = contact.firstName;
+     });
   }
 }
